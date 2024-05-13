@@ -1,0 +1,24 @@
+repos:
+  - repo: local
+    hooks:
+      - id: isort
+        name: isort
+        entry: bash -c '.tox/lint/bin/isort --check-only .'
+        language: system
+        types: [python]
+      - id: black
+        name: black
+        entry: bash -c '.tox/lint/bin/black --check .'
+        language: system
+        types: [python]
+      - id: flake8
+        name: flake8
+        entry: bash -c '.tox/lint/bin/flake8 .'
+        language: system
+        types: [python]
+      - id: mypy
+        name: mypy
+        entry: bash -c '.tox/lint/bin/mypy .'
+        pass_filenames: false
+        language: system
+        types: [python]
